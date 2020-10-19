@@ -1,0 +1,13 @@
+package com.slt.designpatterns.factory.factory1.simpleFactory;
+
+public class Rectangle implements Shape {
+    public Rectangle() {
+        System.out.println("Rectangle");
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Draw Rectangle");
+    }
+}
+
