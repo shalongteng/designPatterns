@@ -85,6 +85,30 @@ public class Main {
      *  filterChain 可以和另一个 filterChain 连接在一起
      * @param args
      */
+    public static void main4(String[] args) {
+        Msg msg = new Msg();
+        msg.setMsg("大家好:)<script>,欢迎访问baidu.com,大家都是996");
+
+        FilterChain filterChain = new FilterChain();
+        //链式调用
+        filterChain.add(new HtmlFilter())
+                .add(new SensitiveFilter());
+
+        //第二个链条
+        FilterChain filterChain2 = new FilterChain();
+        filterChain2.add(new FaceFilter())
+                .add(new UrlFilter());
+
+        //将两个链条 连接在一起
+        filterChain.add(filterChain2).doFilter(msg);
+        System.out.println(msg.getMsg());
+    }
+
+    /**
+     * 版本5
+     * 由filterChain 中的某一个filter 决定链条是否继续
+     * @param args
+     */
     public static void main(String[] args) {
         Msg msg = new Msg();
         msg.setMsg("大家好:)<script>,欢迎访问baidu.com,大家都是996");
@@ -112,21 +136,27 @@ class Msg{
 }
 
 /**
+ * filter 版本1
  * 将变化部分 抽出来
  */
-interface Filter{
+interface Filter2{
     void doFilter(Msg msg);
+}
+
+interface Filter{
+    boolean doFilter(Msg msg);
 }
 
 class HtmlFilter implements Filter{
 
     @Override
-    public void doFilter(Msg msg) {
+    public boolean doFilter(Msg msg) {
         String str = msg.getMsg();
         //对msg 处理  < 可能攻击网站
         str = str.replace("<","[");
         str = str.replace(">","]");
         msg.setMsg(str);
+        return true;
     }
 }
 
@@ -136,30 +166,33 @@ class HtmlFilter implements Filter{
 class SensitiveFilter implements Filter{
 
     @Override
-    public void doFilter(Msg msg) {
+    public boolean doFilter(Msg msg) {
         String str = msg.getMsg();
         //对msg 处理  < 可能攻击网站
         str = str.replaceAll("996","955");
         msg.setMsg(str);
+        return false;
     }
 }
 
 class FaceFilter implements Filter{
     @Override
-    public void doFilter(Msg msg) {
+    public boolean doFilter(Msg msg) {
         String str = msg.getMsg();
         //对msg 处理  < 可能攻击网站
         str = str.replace(":)","555");
         msg.setMsg(str);
+        return true;
     }
 }
 class UrlFilter implements Filter{
     @Override
-    public void doFilter(Msg msg) {
+    public boolean doFilter(Msg msg) {
         String str = msg.getMsg();
         //对msg 处理  < 可能攻击网站
         str = str.replace("baidu.com","www.baidu.com");
         msg.setMsg(str);
+        return true;
     }
 }
 
@@ -173,9 +206,14 @@ class FilterChain implements Filter{
         filterList.add(filter);
         return this;
     }
-    public void doFilter(Msg msg){
+    @Override
+    public boolean doFilter(Msg msg){
         for (Filter filter1 : filterList) {
-            filter1.doFilter(msg);
+            //链条中有一个返回来 false 就不循环了
+            if(!filter1.doFilter(msg)){
+                return false;
+            }
         }
+        return true;
     }
 }
