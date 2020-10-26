@@ -52,6 +52,9 @@ class TankTimeProxy implements Movable {
     }
 }
 
+/**
+ * 实现接口 可以实现代理之间的互相嵌套
+ */
 class TankLogProxy implements Movable {
     Movable m;
 

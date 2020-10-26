@@ -31,7 +31,7 @@ public class Tank implements Movable {
 }
 
 class TankTimeProxy implements Movable{
-    Tank tank;
+    Tank tank;//聚合
 
     public TankTimeProxy(Tank tank) {
         this.tank = tank;
