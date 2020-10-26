@@ -14,7 +14,6 @@ public class Test {
 }
 
 class Button {
-
 	private List<ActionListener> actionListeners = new ArrayList<ActionListener>();
 
 	public void buttonPressed() {
@@ -50,8 +49,10 @@ class MyActionListener2 implements ActionListener {
 
 }
 
+/**
+ * 很多事件 根据事件源对象不同  处理方法不同
+ */
 class ActionEvent {
-
 	long when;
 	Object source;
 
@@ -61,7 +62,6 @@ class ActionEvent {
 		this.source = source;
 	}
 
-
 	public long getWhen() {
 		return when;
 	}
@@ -69,5 +69,4 @@ class ActionEvent {
 	public Object getSource() {
 		return source;
 	}
-
 }

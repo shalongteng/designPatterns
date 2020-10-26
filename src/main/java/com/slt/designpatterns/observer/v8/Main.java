@@ -14,10 +14,11 @@ class Child {
         observers.add(new Dad());
         observers.add(new Mum());
         observers.add(new Dog());
+
+        //hook callback function
         observers.add((e)->{
             System.out.println("ppp");
         });
-        //hook callback function
     }
 
 
