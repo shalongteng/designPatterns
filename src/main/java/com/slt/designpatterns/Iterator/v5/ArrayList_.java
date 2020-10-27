@@ -3,6 +3,7 @@ package com.slt.designpatterns.Iterator.v5;
 
 /**
  * 相比数组，这个容器不用考虑边界问题，可以动态扩展
+ *
  */
 class ArrayList_ implements Collection_ {
     Object[] objects = new Object[10];
