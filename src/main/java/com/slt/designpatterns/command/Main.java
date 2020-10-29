@@ -3,6 +3,9 @@ package com.slt.designpatterns.command;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 需要实现 一连串的 undo
+ */
 public class Main {
     public static void main(String[] args) {
         Content c = new Content();
@@ -28,13 +31,11 @@ public class Main {
             comm.doit();
         }
 
-
         System.out.println(c.msg);
 
         for(int i= commands.size()-1; i>=0; i--) {
             commands.get(i).undo();
         }
-
 
         System.out.println(c.msg);
     }

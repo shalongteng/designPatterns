@@ -1,5 +1,8 @@
 package com.slt.designpatterns.command;
 
+/**
+ * 插入命令
+ */
 public class InsertCommand extends Command {
     Content c;
     String strToInsert = "http://www.mashibing.com";
