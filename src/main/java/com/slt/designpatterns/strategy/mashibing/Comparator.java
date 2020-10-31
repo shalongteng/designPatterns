@@ -2,6 +2,7 @@ package com.slt.designpatterns.strategy.mashibing;
 
 /**
  * 比较器
+ * 比较策略
  * @param <T>
  */
 @FunctionalInterface

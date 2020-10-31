@@ -1,5 +1,8 @@
 package com.slt.designpatterns.factory.mashibing;
 
+/**
+ * 扫帚
+ */
 public class Broom implements Moveable{
 
     @Override

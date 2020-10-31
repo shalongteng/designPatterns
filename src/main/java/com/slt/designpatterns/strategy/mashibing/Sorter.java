@@ -16,7 +16,7 @@ public class Sorter<T> {
             // 每轮需要比较的次数
             for(int j=i+1; j<arr.length; j++) {
                 // 记录目前能找到的最小值元素的下标
-                minPos = arr[i].compareTo(arr[j]) == -1? minPos:j;
+                minPos = arr[j].compareTo(arr[minPos]) == -1? minPos:j;
             }
             // 将找到的最小值和i位置所在的值进行交换
             swap(arr, i, minPos);
@@ -35,7 +35,7 @@ public class Sorter<T> {
             // 每轮需要比较的次数
             for(int j=i+1; j<arr.length; j++) {
                 // 记录目前能找到的最小值元素的下标
-                minPos = arr[i].compareTo(arr[j]) == -1? minPos:j;
+                minPos = arr[j].compareTo(arr[minPos]) == -1? minPos:j;
             }
             // 将找到的最小值和i位置所在的值进行交换
             swap(arr, i, minPos);

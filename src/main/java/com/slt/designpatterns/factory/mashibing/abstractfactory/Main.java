@@ -2,8 +2,8 @@ package com.slt.designpatterns.factory.mashibing.abstractfactory;
 
 /**
  * 产品族
- * ModernFactory
- * MagicFactory
+ * ModernFactory 现代人
+ * MagicFactory  魔法人
  */
 public class Main {
     public static void main(String[] args) {
