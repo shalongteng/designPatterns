@@ -3,12 +3,8 @@ package com.slt.designpatterns.proxy2.v06;
 import java.util.Random;
 
 /**
- * 问题：我想记录坦克移动的时间
- * 最简单办法：修改代码，记录时间
- * 问题2：如果无法修改源码呢。
- * benchmark : 性能测试 需要测试每个方法运行的时间
  *
- * 使用代理
+ * 使用代理   Movable 实现接口 可以实现代理之间的互相嵌套
  * 代理有各种类型
  * 问题：如何实现代理的各种组合？继承？decorator
  * 代理对象改成 movable 原来越像 decorator了

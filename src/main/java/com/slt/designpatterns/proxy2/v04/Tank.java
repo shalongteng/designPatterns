@@ -3,12 +3,8 @@ package com.slt.designpatterns.proxy2.v04;
 import java.util.Random;
 
 /**
- * 问题：我想记录坦克移动的时间
- * 最简单办法：修改代码，记录时间
- * 问题2：如果无法修改源码呢。
- * benchmark : 性能测试 需要测试每个方法运行的时间
+ * 使用代理 代理tank类型
  *
- * 使用代理0000
  */
 public class Tank implements Movable {
 
@@ -30,8 +26,11 @@ public class Tank implements Movable {
     }
 }
 
+/**
+ * 聚合
+ */
 class TankTimeProxy implements Movable{
-    Tank tank;//聚合
+    Tank tank;
 
     public TankTimeProxy(Tank tank) {
         this.tank = tank;
