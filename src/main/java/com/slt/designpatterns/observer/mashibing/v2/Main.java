@@ -1,4 +1,4 @@
-package com.slt.designpatterns.observer.v2;
+package com.slt.designpatterns.observer.mashibing.v2;
 
 /**
  * 面向对象的傻等

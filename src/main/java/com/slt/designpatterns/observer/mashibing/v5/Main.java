@@ -1,4 +1,4 @@
-package com.slt.designpatterns.observer.v5;
+package com.slt.designpatterns.observer.mashibing.v5;
 
 import java.util.ArrayList;
 import java.util.List;

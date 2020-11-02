@@ -1,4 +1,4 @@
-package com.slt.designpatterns.observer.v3;
+package com.slt.designpatterns.observer.mashibing.v3;
 
 /**
  * 加入观察者

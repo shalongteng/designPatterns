@@ -1,4 +1,4 @@
-package com.slt.designpatterns.observer.v1;
+package com.slt.designpatterns.observer.mashibing.v1;
 
 /**
  * 场景：

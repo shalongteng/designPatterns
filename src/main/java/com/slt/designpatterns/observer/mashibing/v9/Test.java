@@ -1,4 +1,4 @@
-package com.slt.designpatterns.observer.v9;
+package com.slt.designpatterns.observer.mashibing.v9;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ public class Test {
 		Button b = new Button();
 		b.addActionListener(new MyActionListener());
 		b.addActionListener(new MyActionListener2());
+		//模拟 键盘按下 事件
 		b.buttonPressed();
 	}
 }

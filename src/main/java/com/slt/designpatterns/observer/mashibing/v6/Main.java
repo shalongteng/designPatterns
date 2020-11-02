@@ -1,26 +1,20 @@
-package com.slt.designpatterns.observer.v8;
+package com.slt.designpatterns.observer.mashibing.v6;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 事件也可以形成 继承体系
+ * 有很多时候，观察者需要根据事件的具体情况来进行处理
+ * 加入 事件类 fire Event
  */
 class Child {
     private boolean cry = false;
     private List<Observer> observers = new ArrayList<>();
-
     {
         observers.add(new Dad());
         observers.add(new Mum());
         observers.add(new Dog());
-
-        //hook callback function
-        observers.add((e)->{
-            System.out.println("ppp");
-        });
     }
-
 
     public boolean isCry() {
         return cry;
@@ -28,8 +22,8 @@ class Child {
 
     public void wakeUp() {
         cry = true;
-
-        wakeUpEvent event = new wakeUpEvent(System.currentTimeMillis(), "bed", this);
+        //小孩哭的 时间 地点
+        wakeUpEvent event = new wakeUpEvent(System.currentTimeMillis(), "bed");
 
         for(Observer o : observers) {
             o.actionOnWakeUp(event);
@@ -37,27 +31,20 @@ class Child {
     }
 }
 
-abstract class Event<T> {
-    abstract T getSource();
-}
+//事件类 fire Event  发出事件
+class wakeUpEvent{
+    long timestamp;//时间
+    String loc;//地点
 
-class wakeUpEvent extends Event<Child>{
-    long timestamp;
-    String loc;
-    Child source;
-
-    public wakeUpEvent(long timestamp, String loc, Child source) {
+    public wakeUpEvent(long timestamp, String loc) {
         this.timestamp = timestamp;
         this.loc = loc;
-        this.source = source;
-    }
-
-    @Override
-    Child getSource() {
-        return source;
     }
 }
 
+/**
+ * 根据事件 观察者不同的反应
+ */
 interface Observer {
     void actionOnWakeUp(wakeUpEvent event);
 }
