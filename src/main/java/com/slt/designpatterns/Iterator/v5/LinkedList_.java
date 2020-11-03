@@ -1,5 +1,7 @@
 package com.slt.designpatterns.Iterator.v5;
 
+import java.util.LinkedList;
+
 /**
  * 相比数组，这个容器不用考虑边界问题，可以动态扩展
  */
@@ -38,6 +40,25 @@ class LinkedList_ implements Collection_ {
 
     @Override
     public Iterator_ iterator() {
-        return null;
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator_{
+        private Node currentNode = head;
+        private int nextIndex = 1;
+
+        @Override
+        public boolean hasNext() {
+            if(nextIndex > size) return false;
+            return true;
+        }
+
+        @Override
+        public Object next() {
+            Node n = currentNode;
+            currentNode = currentNode.next;
+            nextIndex++;
+            return n.o;
+        }
     }
 }

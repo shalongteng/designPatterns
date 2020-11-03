@@ -30,7 +30,6 @@ class ArrayList_ implements Collection_ {
     }
 
     private class ArrayListIterator implements Iterator_{
-
         private int currentIndex = 0;
 
         @Override
