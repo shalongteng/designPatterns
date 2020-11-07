@@ -9,7 +9,6 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         ArrayList_ list = new ArrayList_();
-        Map map = new HashMap();
         for(int i=0; i<15; i++) {
             list.add(new String("s" + i));
         }

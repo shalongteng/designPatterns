@@ -41,6 +41,11 @@ public class Tank implements Movable {
         }
     }
 
+    @Override
+    public void stop() {
+
+    }
+
     public static void main(String[] args) {
         Tank tank = new Tank();
 
@@ -87,4 +92,5 @@ class TimeProxy implements InvocationHandler {
 
 interface Movable {
     void move();
+    void stop();
 }

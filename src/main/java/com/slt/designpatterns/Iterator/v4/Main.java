@@ -5,8 +5,8 @@ package com.slt.designpatterns.Iterator.v4;
  * v2:用链表来实现一个容器
  * v3:添加容器的共同接口，实现容器的替换
  * v4:如何对容器遍历呢？
+ *  如何做一个通用的遍历。
  */
-
 public class Main {
     public static void main(String[] args) {
         Collection_ list = new ArrayList_();

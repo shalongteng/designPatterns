@@ -1,4 +1,4 @@
-package com.slt.designpatterns.observer.v7;
+package com.slt.designpatterns.observer.mashibing.v7;
 
 import lombok.Data;
 
@@ -95,9 +95,6 @@ public class Main {
         //do sth
         c.wakeUp();
 
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.submit(Main::integration);
-        System.out.println("main");
     }
 
     private static void integration() {
